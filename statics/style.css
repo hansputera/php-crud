@@ -1,0 +1,50 @@
+* {
+	margin: 0px;
+	align-items: center;
+	text-align: center;
+	padding: 0px;
+}
+
+body {
+	background-color: whitesmoke;
+}
+
+table {
+	border-spacing: 2em;
+	border-image-repeat: no-repeat;
+	margin-left: 100px;
+}
+
+table tr {
+	font-family: sans-serif;
+}
+
+table tr td {
+	padding: 10px;
+}
+
+table tr a {
+	text-decoration: none;
+}
+
+table tr:nth-child(1) {
+	font-variant: small-caps;
+}
+
+.add {
+	margin-top: 10vh;
+	padding: 20px;
+	background-color: pink;
+	border: 2px solid black;
+	box-shadow: 0 4px 8px #000000;
+	transition: transform 1s;
+}
+
+.add:focus {
+	background-color: white;
+}
+
+.add:hover {
+	transform: scale(1.1);
+	box-shadow: 0 6px 10px #000000;
+}
