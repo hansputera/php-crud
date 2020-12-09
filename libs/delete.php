@@ -16,7 +16,7 @@
 		$sql = "DELETE FROM users WHERE id = '$id'";
 		$query = mysqli_query($conn, $sql);
 
-		echo "Berhasil menghapus data!";
+		echo "<script>alert('Data berhasil dihapus!'); window.location.replace('$hostedURL');</script>";
 	}
 	}
 

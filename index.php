@@ -36,4 +36,5 @@
     <button class="add">Add user</button>
  </body>
  <script type="text/javascript" src="statics/index.js"></script>
+    <script type="text/javascript" src="statics/device.js"></script>
  </html>

@@ -49,22 +49,21 @@
 			</tr>
 		</table>
 	</form>
-
 	<footer>
 		&copy; Latihan PHP dan MySQL
 	</footer>
 </body>
+  <script type="text/javascript" src="../statics/device.js"></script>
 </html>
 
 <?php 
 
 	if (isset($_POST["submit"])) {
-		$username = $_POST["username"];
-		$password = $_POST["password"];
-		$email = $_POST["email"];
+		$username = trim($_POST["username"]);
+		$password = trim($_POST["password"]);
+		$email = trim($_POST["email"]);
 
 		include_once("../database.php");
-
 
 		$sql = "SELECT * FROM users WHERE username = '$username' && email = '$email'";
 		$res = mysqli_query($conn, $sql);
@@ -78,7 +77,7 @@
 
 		$result = mysqli_query($conn, "INSERT INTO users (id, username, password, email) VALUES ('$randomID', '$username', '$password', '$email')");
 
-		echo '<script>alert("User telah dimasukan, kembali ke halaman awal untuk melihat!"); window.location.replace("$hostedURL");;</script>';
+		echo "<script>alert('User telah dimasukan, kembali ke halaman awal untuk melihat!'); window.location.replace('$hostedURL');</script>";
 		}
 	}
  ?>

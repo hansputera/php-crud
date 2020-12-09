@@ -40,4 +40,5 @@
   	<button class="submitBtn" name="submit">Update</button>
   </form>
  </body>
+  <script type="text/javascript" src="../statics/device.js"></script>
  </html>
