@@ -11,8 +11,8 @@ body {
 
 table {
 	border-spacing: 2em;
-	border-image-repeat: no-repeat;
 	margin-left: 100px;
+	margin-top: 10vh;
 }
 
 table tr {
@@ -25,6 +25,10 @@ table tr td {
 
 table tr a {
 	text-decoration: none;
+}
+
+table tr a:hover {
+	text-decoration: underline;
 }
 
 table tr:nth-child(1) {

@@ -13,6 +13,10 @@
 		echo "<script>alert('Data tidak ditemukan!'); window.location.replace('$hostedURL');</script>";
 	}
 		$data = mysqli_fetch_assoc($sql);
+
+    if ($data == 1) {
+      echo "<script>alert('Akun ini telah di suspend!');window.location.reload('$hostedURL');</script>"
+    } else {}
  ?>
 
  <!DOCTYPE html>

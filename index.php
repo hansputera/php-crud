@@ -1,40 +1,44 @@
 <?php 
 
-	include_once("database.php");
-	include_once("config.php");
-
-	$result = mysqli_query($conn, "SELECT * FROM users ORDER BY id DESC");
-    $total = mysqli_num_rows($result);
-
+	session_start();
+	
+	include "config.php";
+	if (isset($_SESSION["userInfo"])) {
+		echo "<script>window.location.replace('$hostedURL/admin.php');</script>";
+	}
  ?>
 
- <!DOCTYPE html>
- <html>
- <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="statics/style.css">
- 	<title>Halaman awal</title>
- </head>
- <body>
- 	<br /><br />
-    <h1>Total Data: <?= $total ?></h1>
- 	<table width="80%" border=1>
- 		<tr>
- 			<th>Name</th> <th>Password</th> <th>Email</th> <th>Update</th>
- 		</tr>
- 		<?php  
-        while($user_data = mysqli_fetch_array($result)) {         
-        echo "<tr>";
-        echo "<td>".$user_data['username']."</td>";
-        echo "<td>".$user_data['password']."</td>";
-        echo "<td>".$user_data['email']."</td>";    
-        echo "<td><a href='libs/edit.php?id=$user_data[id]'>Edit</a> <a href='libs/delete.php?id=$user_data[id]'>Hapus</a></td></tr>";        
-    }
-    ?>
- 	</table>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf8" />
+	<link rel="stylesheet" type="text/css" href="statics/index.css" />
+	<title>Login or register!</title>
+</head>
+<body>
+	<section class="alert">
+		<h1>Alert</h1>
+		<p>Untuk pengguna handphone maupun smartphone website ini tidak sesuai dengan perangkat anda, terimakasih!</p>
+	</section>
+	<section class="welcome">
+		<h1 class="welcomehead">Welcome to <strong><?= $projectName ?></strong></h1>
+	</section>
 
-    <button class="add">Add user</button>
- </body>
- <script type="text/javascript" src="statics/index.js"></script>
-    <script type="text/javascript" src="statics/device.js"></script>
- </html>
+	<section class="loginorregister">
+		<h1>Login atau Register</h1>
+		<hr />
+		<div class="selections">
+			<button onclick="register()" id="register" type="submit">Register</button>
+			<button onclick="login()" id="login" type="submit">Login</button>
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="statics/idnex.js"></script>
+</html>
+
+<?php 
+
+	session_destroy();
+
+ ?>
