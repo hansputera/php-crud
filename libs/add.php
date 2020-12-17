@@ -1,5 +1,11 @@
 <?php 
+	
+	session_start();
 	include_once("../config.php");
+
+	if (isset($_SESSION["userInfo"]) && $_SESSION["userInfo"]["username"] !== "admin") {
+		echo "<script>window.location.replace('$hostedURL');</script>";
+	}
 
  ?>
 <!DOCTYPE html>

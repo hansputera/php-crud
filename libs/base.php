@@ -1,7 +1,5 @@
 <?php 
 
-	include_once("../config.php");
-
 	class Base {
 		
 		public function __construct($server) {

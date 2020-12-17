@@ -52,3 +52,7 @@ table tr:nth-child(1) {
 	transform: scale(1.1);
 	box-shadow: 0 6px 10px #000000;
 }
+
+.profile {
+	font-family: sans-serif;
+}

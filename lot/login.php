@@ -58,8 +58,12 @@
  			if ($user["password"] !== $password) {
  				echo "<script>alert('Salah password');window.location.replace('$hostedURL');</script>";
  			} else {
+ 				if ($base->isSuspended($user["id"]) === TRUE) {
+ 					echo "<script>alert('User telah di suspend, tidak bisa login!');window.location.replace('$hostedURL');</script>";
+ 				} else {
  				$_SESSION["userInfo"] = $user;
  				echo "<script>alert('Kamu sudah login :D');window.location.replace('$hostedURL');</script>";
+ 			}
  			}
  		}
  	}

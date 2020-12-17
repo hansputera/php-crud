@@ -1,6 +1,13 @@
 <?php 
+  
+  session_start();
 	include_once("../database.php");
 	include_once("../config.php");
+
+
+  if (!isset($_SESSION["userInfo"])) {
+    echo "<script>window.location.replace('$hostedURL');</script>";
+  }
 
 	$id = $_GET["id"];
 	if (!$id) {
