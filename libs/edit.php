@@ -3,13 +3,16 @@
   session_start();
 	include_once("../database.php");
 	include_once("../config.php");
+  include_once("./functions.php");
 
 
   if (!isset($_SESSION["userInfo"])) {
     echo "<script>window.location.replace('$hostedURL');</script>";
+  } elseif ($_SESSION["userInfo"]["username"] !== "admin") {
+    echo redirect($hostedURL);
   }
 
-	$id = $_GET["id"];
+	$id = @$_GET["id"];
 	if (!$id) {
 		echo "<script>window.location.replace('$hostedURL');</script>";
 	}
@@ -22,8 +25,8 @@
 		$data = mysqli_fetch_assoc($sql);
 
     if ($data == 1) {
-      echo "<script>alert('Akun ini telah di suspend!');window.location.reload('$hostedURL');</script>"
-    } else {}
+      echo "<script>alert('Akun ini telah di suspend!');window.location.reload('$hostedURL');</script>";
+    }
  ?>
 
  <!DOCTYPE html>

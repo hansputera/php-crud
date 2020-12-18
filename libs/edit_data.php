@@ -6,10 +6,10 @@
 
 
  	if (isset($_POST['submit'])) {
- 		$id = $_GET["id"];
- 		$username = $_POST["username"];
- 		$password = $_POST["password"];
- 		$email = $_POST["email"];
+ 		$id = @$_GET["id"];
+ 		$username = @$_POST["username"];
+ 		$password = @$_POST["password"];
+ 		$email = @$_POST["email"];
 
  		if (!$username || !$password || !$email || !$id) {
  			echo "<script>window.location.replace('$hostedURL');</script>";

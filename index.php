@@ -2,7 +2,7 @@
 
 	session_start();
 	$logged;
-	
+
 	include "config.php";
 	if (isset($_SESSION["userInfo"]) && $_SESSION["userInfo"]["username"] === "admin") {
 		
@@ -42,6 +42,7 @@
 		</div>
 		<?php } else { ?>
 			<h1>Hai <?= $_SESSION["userInfo"]["username"] ?></h1>
+			<p><a style="font-size: 30px; margin-top: 10px; text-decoration: none;" href="<?= $hostedURL . '/logout.php' ?>">Logout</a></p>
 		<?php } ?>
 	</section>
 </body>

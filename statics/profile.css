@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100%;
+	margin-bottom: 10vh;
+	display: grid;
+}
+
+.detail {
+	font-family: sans-serif;
+	margin-top: 100px;
+	text-align: center;
+	background-color: whitesmoke;
+	border: 3px solid grey;
+	border-opacity: 0.5;
+	border-radius: 5%;
+}
+.detail h1 {
+	font-size: 80px;
+	font-synthesis: style;
+}
+
+table {
+	border-spacing: 2em;
+	margin-left: 20vh;
+	margin-top: 10vh;
+	border: 3px solid #000000;
+	margin-bottom: 5vh;
+}
+
+table th {
+	border-spacing: 1em;
+}
+
+table tr {
+	font-family: sans-serif;
+}
+
+table tr td {
+	padding: 10px;
+}
+
+.updates {
+	text-align: center;
+	margin-top: 5vh;
+	background-color: #1f9f9c;
+	border: 3px solid grey;
+	font-family: sans-serif;
+	border-radius: 5%;
+}
+
+.updates h1 {
+	font-size: 60px;
+	font-variant: small-caps;
+}
+
+.updates form .update-group {
+	display: inline-grid;
+	margin-top: 10vh;
+}
+
+.updates form .update-group h2 {
+	font-size: 30px;
+	font-stretch: semi-expanded;
+}
+
+.updates form .update-group label {
+	font-size: 25px;
+	margin-top: 10px;
+}
+
+.updates form .update-group input {
+	padding: 20px;
+	border: 2px solid #000000;
+	outline: none;
+	margin: 10px;
+	font-size: 20px;
+	text-align: center;
+	transition: 1s;
+}
+
+.updates form .update-group input:hover {
+	border: 2px solid #8888;
+}
+
+.updates form .update-group input:focus {
+	border: 2px solid blue;
+}
+
+.updates form .update-group button {
+	padding: 5px;
+	font-size: 30px;
+	transition: 1s;
+	border: 2px solid red;
+}
+
+.updates form .update-group button:hover {
+	paint-order: stroke;
+	opacity: 0.8;
+	border: 2px solid black;
+}
+
+@media only screen and (max-width: 400px) {
+	table { margin-left: 0; }
+}

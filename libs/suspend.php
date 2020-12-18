@@ -7,7 +7,7 @@
 	if (!isset($_SESSION["userInfo"])) {
 		echo "<script>window.location.replace('$hostedURL');</script>";
 	}
-	$id = $_GET["id"];
+	$id = @$_GET["id"];
 	if (!$id) {
 		echo "<script>window.location.reload('$hostedURL');</script>";
 	}
