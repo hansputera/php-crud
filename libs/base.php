@@ -84,13 +84,12 @@
 				);
 
 				$data = mysqli_fetch_assoc($sql);
-				if (data["suspended"] == 0) {
+				if ($data["suspended"] == 0) {
 					return FALSE;
 				} else {
 					return TRUE;
 				}
 			}
 		}
-
 	}
  ?>

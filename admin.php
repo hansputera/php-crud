@@ -4,16 +4,28 @@
 
 	include_once("database.php");
 	include_once("config.php");
+    include "libs/base.php";
+
+    $base = new Base($conn);
     
 	$result = mysqli_query($conn, "SELECT * FROM users ORDER BY id DESC");
     $total = mysqli_num_rows($result);
 
+
     if (!isset($_SESSION["userInfo"])) {
         echo "<script>window.location.replace('$hostedURL');</script>";
     }
+
+    $nonavailable;
+
+    if ($base->getByUsername($_SESSION["userInfo"]["username"]) === NULL) {
+        $nonavailable = TRUE;
+        echo "Nampaknya akun kamu sudah dihapus, otomatis logout!";
+        session_destroy();
+    }
  ?>
 
-<?php if ($_SESSION["userInfo"]["username"] === "admin") { ?>
+<?php if ($_SESSION["userInfo"]["username"] === "admin" && !isset($nonavailable)) { ?>
  <!DOCTYPE html>
  <html>
  <head>
@@ -27,7 +39,7 @@
     <h1>Total Data: <?= $total ?></h1>
  	<table width="80%" border="1">
  		<tr>
- 			<th>ID</th> <th>Name</th> <th>Password</th> <th>Email</th> <th>Admin</th> <th>Tools</th>
+ 			<th>ID</th> <th>Name</th> <th>Password</th> <th>Email</th> <th>Admin</th> <th>Suspended</th> <th>Tools</th>
  		</tr>
  		<?php  
         while($user_data = mysqli_fetch_array($result)) {         
@@ -39,6 +51,12 @@
         echo "<td>".$user_data['email']."</td>"; 
 
         if ($user_data["isAdmin"] == 0) {
+            echo "<td>Tidak</td>";
+        } else {
+            echo "<td>Ya</td>";
+        }
+
+        if ($user_data["suspended"] == 0) {
             echo "<td>Tidak</td>";
         } else {
             echo "<td>Ya</td>";
